@@ -22,6 +22,7 @@ def load_data():
     return df
 
 dashboard_data = load_data()
+dashboard_data = dashboard_data[dashboard_data["fall_term"].isin([2023, 2024, 2025])]
 
 # -------------------------------------------------
 # ANALYSIS (cleaned-up version of your original code)
