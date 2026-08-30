@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # -------------------------------------------------
 st.set_page_config(page_title="Charter vs. Non-Charter Yield Rates", layout="wide")
 
-st.title("📊 Charter vs. Non-Charter School Yield Rates")
+st.title("Charter vs. Non-Charter School Yield Rates")
 st.markdown(
     "Comparing enrollment yield rates (**enrollees / applicants**) for charter vs. "
     "non-charter schools, Fall 2023–2025."
