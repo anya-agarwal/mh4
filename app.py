@@ -9,7 +9,7 @@ st.set_page_config(page_title="Charter vs. Non-Charter Yield Rates", layout="wid
 
 st.title("Charter vs. Non-Charter School Yield Rates")
 st.markdown(
-    "Comparing enrollment yield rates (**enrollees / applicants**) for charter vs. "
+    "Comparing enrollment yield rates (**enrollees / admits**) for charter vs. "
     "non-charter schools, Fall 2023–2025."
 )
 
@@ -32,10 +32,10 @@ dashboard_data = dashboard_data[dashboard_data["fall_term"].isin([2023, 2024, 20
 yield_summary = (
     dashboard_data
     .groupby(["fall_term", "charter"])
-    .agg(applicants=("applicants", "sum"), enrollees=("enrollees", "sum"))
+    .agg(admits=("admits", "sum"), enrollees=("enrollees", "sum"))
     .reset_index()
 )
-yield_summary["yield_rate"] = yield_summary["enrollees"] / yield_summary["applicants"]
+yield_summary["yield_rate"] = yield_summary["enrollees"] / yield_summary["admits"]
 
 # Pivot so each row = a year, columns = charter (Y) vs non-charter (N)
 pivot = yield_summary.pivot(index="fall_term", columns="charter", values="yield_rate")
